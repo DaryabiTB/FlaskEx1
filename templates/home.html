@@ -1,25 +1,52 @@
-<DOCTYPE html>
-  <html>
-    <head>
-      <title> Talib Carrier page</title>
-    </head>
-    <body>
-      <h1> Job Hunting Site</h1>
-      <p> Hello Dear, welcome into Talib Carrier page</p>
-      <img src="https://replit.com/@talibdaryabi/FlaskEx1#static/img1.jpg" , height="320">
-      <h2> about JOb</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rutrum, erat ac condimentum pretium, quam lorem varius ante, sit amet scelerisque sem augue vitae arcu. Maecenas sed eros et justo auctor convallis. Morbi aliquet sodales aliquam. Aenean eleifend sagittis arcu, vitae consequat lectus fermentum a. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed semper dui et orci fringilla tristique. Nulla facilisi. Integer convallis bibendum dignissim. Nunc vitae convallis mauris, ac mattis leo. Aliquam sit amet hendrerit erat, ut scelerisque turpis. Etiam volutpat condimentum ex quis imperdiet. Nam in varius nisi, volutpat interdum nisl.
-
-Vestibulum viverra tincidunt mi, sed feugiat ex scelerisque ac. Vestibulum urna diam, sollicitudin ac dapibus tristique, rutrum id libero. Nam non auctor sem. Phasellus malesuada turpis sit amet quam mattis dignissim. Cras tempor neque in libero interdum pretium. Vivamus eros nibh, auctor non diam in, consectetur dignissim eros. Phasellus ut lobortis augue.
-
-Morbi bibendum sem eget massa imperdiet luctus. Phasellus vitae magna erat. Integer a est eget lacus sodales porttitor sed at eros. Donec iaculis dolor quis mauris feugiat consectetur. Suspendisse interdum, ante in eleifend laoreet, lacus neque molestie est, sed hendrerit risus leo placerat tortor. Duis bibendum placerat mauris, ut sollicitudin tellus tristique et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus euismod tortor at vestibulum tempus. Quisque viverra, mauris quis ornare elementum, odio magna bibendum ante, ut euismod libero justo nec ligula. Vivamus ut ligula leo. Nullam gravida consequat vestibulum. Nulla nisl dui, vestibulum ut ante vel, vulputate bibendum tellus. Vivamus id lorem eget purus faucibus dignissim.
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TBCareers</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous">
+    <style>
+      #banner {
+        height: 360px;
+        width: 100%;
+        object-fit:cover;
+        margin-bottom: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'nav.html' %}
+    <img class="img-fluid" id="banner" src="https://jovian-careers-website.aakashns.repl.co/static/banner.jpeg" >
+    <div class="container">
+      <h1 class="text-center mt-2 mb-4">
+        {{company_name}} Careers
+      </h1>
+      <div class="row" style="margin-bottom:32px">
+        <div class="col-md-6">
+      <p class="lead">
+        At TB, we’re on a mission to build the most highly reputed technical university in the world,
+        and we’re building it completely online. Our flagship data science program helps working professionals with a
+        background in programming or analytics make a career transition to data science. We also offer several free
+        beginner-friendly courses and have a fast-growing community of 200,000+ users.
       </p>
-
-      <h2> Open Postions</h2>
-      <p>job list </p>
-      <button>
-        contact us
-      </button>
-    </body>
-  </html>
+        </div>
+        <div class="d-none d-md-block col-md-6">
+        <img src="/static/people.jpeg" style="height:320px;border-radius:4px;">
+        </div>
+      </div>
+      <h2 class="text-center mt-2 mb-4">Open Positions</h2>
+      <div>
+        {% for job in jobs %}
+          {% include 'jobitem.html' %}
+        {% endfor %}
+      </div>
+      <div class="text-center">
+      <a class="btn btn-primary btn-lg" href=""
+      >Contact Us</a>
+      </div>
+    </div>
+    {% include 'footer.html' %}
+  </body>
+</html>
